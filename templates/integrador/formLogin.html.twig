@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio integrador</title>
+    </head>
+    <body>
+
+    <h1 class="h3 mb-3 font-weight-normal">Login de Usuario</h1>
+    <form action="{{ path('verificar') }}" method="post">
+    <label for="inputEmail">Email</label><br/>
+    <input type="email" value="" name="email" id="email" class="form-control" required autofocus><br/>
+    <label for="inputPassword">Password</label><br/>
+    <input type="password" name="password" id="password" class="form-control" required><br/>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    <br/>
+    <button class="btn btn-lg btn-primary" type="submit" >
+        Entrar
+    </button>
+
+    
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Listado de usuarios</title>
+    </head>
+    <body>
+    <h2>Todos los Uuarios</h2>
+       {% for user in usuariosAll %}
+        <li>{{ user.nombre|e }}</li>
+        {% endfor %}
+
+    <h2>Todos los Uuarios ordenados por Nombre DESC</h2>
+       {% for user in usuarios %}
+        <li>{{ user.nombre|e }}</li>
+        {% endfor %}
+    </body>
+</html>

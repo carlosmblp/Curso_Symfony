@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Usuario
  *
  * @ORM\Table(name="usuario")
- * @ORM\Entity(repositoryClass="App/Repository/UsuarioRepository")
+ * @ORM\Entity
  */
 class Usuario
 {
@@ -49,15 +49,12 @@ class Usuario
      */
     private $fNac;
 
-
-    public function __construct($nombre, $apellido, $email=null, $f_nac) {
-
-       $this->nombre = $nombre;
-       $this->apellido = $apellido;
-       $this->email = $email;
-       $this->f_nac = $f_nac;
-       
-   }
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=true, options={"default"="NULL"})
+     */
+    private $password = 'NULL';
 
     public function getUsuarioId(): ?int
     {
@@ -108,6 +105,18 @@ class Usuario
     public function setFNac(\DateTimeInterface $fNac): self
     {
         $this->fNac = $fNac;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }

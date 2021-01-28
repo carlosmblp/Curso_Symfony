@@ -21,3 +21,5 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/api/login, roles: ROLE_ADMIN }
+        # - { path: ^/api, roles: ROLE_USER }

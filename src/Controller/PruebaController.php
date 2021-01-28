@@ -6,6 +6,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Usuario;
 
 
 class PruebaController extends AbstractController
@@ -48,6 +49,27 @@ class PruebaController extends AbstractController
             'contenido' => 'contenido contenido contenidocontenido contenido contenidocontenido contenido contenidocontenido contenido contenidocontenido contenido contenido',
         ]);
     }
+
+
+    /**
+     * @Route("/usuarios", name="usuarios")
+     */
+    public function usuarios(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $usuarios = $this->getDoctrine()->getRepository(Usuario::class)->findAll();
+
+        $usuarios2 = $this->getDoctrine()->getRepository(Usuario::class)->findAllOrderedByName();
+
+        return $this->render('prueba/usuarios.html.twig', [
+            'usuariosAll' => $usuarios,
+            'usuarios' => $usuarios2
+            
+        ]);
+    }
+
+
 }
 
 
