@@ -37,10 +37,7 @@ class IntegradorController extends AbstractFOSRestController
     public function login(): Response
     {   
 
-        return $this->render('integrador/formLogin.html.twig', [
-            'titulo' => 'Vista 1',
-            'contenido' => 'contenido contenido contenido',
-        ]);
+        return $this->render('integrador/formLogin.html.twig');
         
       
     }
